@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-3 mb-3">Parse It!</h1>
+
+    <form action="">
+        <div class="row">
+            {% for field in form %}
+            <div class="col-12 mb-1">{{ field }}</div>
+            <div class="w-100"></div>
+            <div class="col-auto">{{ field.errors }}</div>
+            {% endfor %}
+            <div class="justify-content-center text-center mb-2"><input type="submit" class="btn btn-dark"
+                    value="Find"></div>
+        </div>
+    </form>
+
+    {% if urls %}
+    <div class="row">
+        <div class="col-12 rounded-3">
+            <ul class="list-unstyled">
+                {% for url in urls %}
+                <li>
+                    <a href="{{ url }}" class="btn btn mb-1 shadow"
+                        style="background: linear-gradient(90deg, #8A8585,#597078);">{{ url }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
